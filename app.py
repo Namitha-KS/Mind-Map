@@ -58,8 +58,8 @@ def generate_mind_map(keywords):
 
 
 # Example usage:
-sample_text = "Your text here. Ensure it has less than 1000 words."
-generate_mind_map(sample_text)
+keywords = ["Topic A", "Subtopic 1", "Subtopic 2", "Topic B", "Subtopic 3"]
+generate_mind_map(keywords)
 
 
 if __name__ == '__main__':
