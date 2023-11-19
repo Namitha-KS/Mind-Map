@@ -32,28 +32,24 @@ def generate_mind_map(text):
     # Set node positions using spring layout
     pos = nx.spring_layout(G, seed=42, scale=10)  # Adjust layout parameters here
 
-    # Draw nodes with rounded rectangle shape and contain text within nodes
-    node_labels = {sentence: sentence for sentence in sentences}
-    nx.draw_networkx_nodes(
-        G, 
-        pos, 
-        node_size=3000, 
-        node_shape='s', 
-        node_color='lightblue', 
-        alpha=0.7
-    )
+    # Compute node sizes based on text length
+    node_sizes = [len(sentence) * 100 for sentence in sentences]  # Adjust multiplier to control node size
+    max_node_size = max(node_sizes)
 
-    # Draw node labels as text boxes
-    for node, (x, y) in pos.items():
+    # Draw nodes with text
+    for sentence, (x, y), size in zip(sentences, pos.values(), node_sizes):
         plt.text(
             x, 
             y, 
-            node, 
-            bbox=dict(facecolor='white', alpha=0.7, edgecolor='black'), 
+            sentence, 
+            bbox=dict(facecolor='lightblue', alpha=0.7, edgecolor='black', pad=0.5),
             horizontalalignment='center', 
             verticalalignment='center', 
             fontsize=12
         )
+        node_width = size / max_node_size * 3000  # Adjust the multiplier for node width
+        plt.scatter(x, y, s=0, marker='s')  # Invisible marker to define node size
+        plt.scatter(x, y, s=node_width, c='lightblue', alpha=0.7, edgecolor='black')
 
     # Draw edges
     for i, sentence1 in enumerate(sentences):
@@ -68,6 +64,7 @@ def generate_mind_map(text):
     plt.tight_layout()  # Adjust layout for better spacing
     plt.savefig('static/mind_map.png', dpi=300, bbox_inches='tight')
     plt.close()
+
 
 def compute_similarity(sentence1, sentence2):
     # Preprocess sentences
