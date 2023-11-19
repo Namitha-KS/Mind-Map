@@ -25,53 +25,6 @@ def extract_keywords(text):
     keywords = [token.text for token in doc if not token.is_stop and token.pos_ in ["NOUN", "VERB", "ADJ"]]
     return keywords
 
-# def generate_mind_map(keywords):
-#     G = nx.Graph()
-#     G.add_nodes_from(keywords)
-#     for i, keyword in enumerate(keywords[:-1]):
-#         G.add_edge(keyword, keywords[i+1])
-    
-#     plt.figure(figsize=(8, 6))
-#     pos = nx.spring_layout(G)
-#     nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=1500, font_weight='bold', font_size=10)
-#     plt.title("Generated Mind Map")
-#     plt.savefig('static/mind_map.png')  # Save the generated mind map
-#     plt.close()
-
-
-# def generate_mind_map(keywords):
-#     # Create an empty graph
-#     G = nx.Graph()
-    
-#     # Add nodes from the provided keywords
-#     G.add_nodes_from(keywords)
-    
-#     # Add edges between nodes (forming relationships)
-#     for i, keyword in enumerate(keywords[:-1]):
-#         G.add_edge(keyword, keywords[i+1])
-    
-#     # Create a figure for plotting the mind map
-#     plt.figure(figsize=(10, 8))
-    
-#     # Define the layout for the nodes in the graph (customize layout for better readability)
-#     pos = nx.spring_layout(G, seed=42)  # Use a seed for consistent layout
-    
-#     # Draw the graph with improved styling for readability
-#     nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=2000, font_weight='bold', font_size=12,
-#             edge_color='gray', width=1, alpha=0.7, arrowsize=15)
-    
-#     # Set a title for the mind map
-#     plt.title("Generated Mind Map", fontsize=16)
-    
-#     # Save the generated mind map as an image (adjust filename/path as needed)
-#     plt.savefig('static/mind_map.png', dpi=300, bbox_inches='tight')  # Save the generated mind map with higher resolution
-    
-#     # Close the plot to prevent displaying it (if needed)
-#     plt.close()
-
-# # Example usage:
-# keywords = ["Topic A", "Subtopic 1", "Subtopic 2", "Topic B", "Subtopic 3"]
-# generate_mind_map(keywords)
 
 def generate_mind_map(text):
     # Check if the text has less than 1000 words
@@ -98,15 +51,6 @@ def generate_mind_map(text):
     # Generate the mind map
     G = nx.Graph()
 
-    # Add main topics as center blocks
-    # for i, topic in enumerate(main_topics):
-    #     G.add_node(f"Main Topic {i + 1}", label=", ".join(topic), color='red', shape='rectangle', fontsize=14)
-
-    # # Add subtopics related to each main topic
-    # for i, topic in enumerate(main_topics):
-    #     for j in range(3):
-    #         G.add_node(f"Subtopic {i + 1}-{j + 1}", label=f"{topic[j]}: Short description of {topic[j]}", color='blue', shape='ellipse', fontsize=12)
-    #         G.add_edge(f"Main Topic {i + 1}", f"Subtopic {i + 1}-{j + 1}")
     for i, topic in enumerate(main_topics):
         G.add_node(f"Main Topic {i + 1}", label=", ".join(topic), color='red', node_shape=0)  # Use 0 for a circular node shape
 
