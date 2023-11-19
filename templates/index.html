@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mind Map Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Mind Map Generator</h1>
+    <form action="/generate" method="post">
+        <textarea name="text" placeholder="Enter text here"></textarea><br>
+        <input type="submit" value="Generate Mind Map">
+    </form>
+    <div>
+        <img src="{{ url_for('static', filename='mind_map.png') }}" alt="Generated Mind Map">
+    </div>
+</body>
+</html>
