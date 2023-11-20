@@ -3,6 +3,7 @@
 # MindMap Generator
 
 The MindMap Generator is a web application built using Flask, designed to extract keywords from user-input text and visualize them in a network graph, providing an intuitive representation of the central concepts within the text. Mind maps serve as powerful visual tools that aid in organizing thoughts, concepts, and information in a non-linear and intuitive manner. 
+This is a feature updation of the projet that I am trying to build, which will help students learn anything much effectively than the conventional way of teaching : https://x.com/13_cs2/status/1692441104199594490?s=20
 
 ## Features
 
@@ -27,16 +28,27 @@ The MindMap Generator is a web application built using Flask, designed to extrac
 
 ![App Screenshot](map.png)
 
-This is a feature updation of the projet that I am trying to build, which will help students learn anything much effectively than the conventional way of teaching : https://x.com/13_cs2/status/1692441104199594490?s=20
 
 ## Usage
-1. Clone the Repository
- '''git clone https://github.com/'''
 
-Install Dependencies: Install necessary Python libraries by running pip install -r requirements.txt.
+1. Clone this repository
 
-Run the Application: Start the Flask-based web application with python app.py.
+```bash
+  git clone https://github.com/Namitha-S-11465/Mind-Map.git
+```
 
-Input Text: Enter text into the provided form and click "Generate MindMap" to trigger keyword extraction and graph visualization.
+2. Install the requirements
 
-Graph Visualization: Visualize the extracted keywords and their connections in the generated network graph displayed on the web interface.
+```bash
+    pip install -r requirements.txt
+```
+    
+3. Run the file
+
+```bash
+    python app.py
+```
+
+4. Copy paste the text in the textbox
+
+5. On clicking Submit, a map will be generated and sutomatically saved inside the static directory.
