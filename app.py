@@ -22,14 +22,14 @@ def extract_keywords(text):
     tagged_words = pos_tag(filtered_words)
     keywords = [word for word, pos in tagged_words if pos.startswith('NN') or pos.startswith('NNP')]
     keyword_freq = Counter(keywords)
-    return keyword_freq.most_common(10)  # Change the number of keywords as needed
+    return keyword_freq.most_common(10) 
 
 def extract_keywords_bert(text):
     ner_pipeline = pipeline("ner", model="bert-base-uncased", tokenizer="bert-base-uncased")
     entities = ner_pipeline(text)
     keywords = [entity['word'] for entity in entities if entity['entity'] == 'MISC']
     keyword_freq = Counter(keywords)
-    return keyword_freq.most_common(10)  # Change the number of keywords as needed
+    return keyword_freq.most_common(10) 
 
 def generate_graph(keywords):
     G = nx.Graph()
