@@ -23,4 +23,6 @@ The MindMap Generator is a web application built using Flask, designed to extrac
 - [NetworkX](https://networkx.org/): Library for the creation, manipulation, and study of complex networks.
 - [Matplotlib](https://matplotlib.org/): A plotting library used for generating the network graph visualization.
 
+## Generated Mind-Maps
 
+![App Screenshot](\static\map.png))
