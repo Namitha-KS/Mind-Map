@@ -25,4 +25,4 @@ The MindMap Generator is a web application built using Flask, designed to extrac
 
 ## Generated Mind-Maps
 
-![App Screenshot](\static\map.png))
+![App Screenshot](\static\map.png)
